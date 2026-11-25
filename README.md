@@ -1,4 +1,4 @@
-# Abanop & Lydia — Wedding Invitation
+# Abanob & Lydia — Wedding Invitation
 
 Live invitation page. Open `index.html` to edit the settings block near the bottom:
 
@@ -10,4 +10,4 @@ Live invitation page. Open `index.html` to edit the settings block near the bott
 1. Create a GitHub account → New repository (Public), e.g. `abanop-lydia`.
 2. "uploading an existing file" → drag everything from this folder (keep the `img` and `music` folders) → Commit.
 3. Settings → Pages → Source: "Deploy from a branch", Branch: `main`, folder `/ (root)` → Save.
-4. After ~1 minute your link is `https://abanop-lydia.github.io/Abanop-Lydia/`
+4. After ~1 minute your link is `https://abanop-lydia.github.io/Abanob-Lydia/`

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Abanop & Lydia · 28 January 2027</title>
-<meta name="description" content="Abanop & Lydia cordially invite you to their wedding — Thursday, 28 January 2027, St. Mary Church, El Nozha.">
-<meta property="og:title" content="Abanop & Lydia · Wedding Invitation">
+<title>Abanob & Lydia · 28 January 2027</title>
+<meta name="description" content="Abanob & Lydia cordially invite you to their wedding — Thursday, 28 January 2027, St. Mary Church, El Nozha.">
+<meta property="og:title" content="Abanob & Lydia · Wedding Invitation">
 <meta property="og:description" content="Thursday, 28 January 2027 · 6:00 PM · St. Mary Church, El Nozha">
 <meta property="og:image" content="img/kids.jpg">
 <meta name="theme-color" content="#5a0f1d">
@@ -202,8 +202,11 @@ textarea{min-height:80px;resize:vertical}
 .wish p{margin:6px 0 0;font-size:15px;line-height:1.55;color:#4b2a2a;overflow-wrap:anywhere}
 .empty{font-style:italic;color:var(--soft);text-align:center;font-size:15px}
 .closing{text-align:center;padding:50px 0 100px}
-.closing p{margin:0;color:var(--ink);font-size:15px;letter-spacing:.02em}
-.closing .mono{font-size:72px;color:var(--bur);margin:10px 0 0;line-height:1}
+.closing p{margin:0;color:var(--ink)}
+.closing .cl1{font:italic 400 clamp(20px,5.6vw,23px)/1.4 "Wed Serif",serif;color:var(--bur);max-width:20ch;margin:0 auto;text-wrap:balance}
+.closing .cl2{font-size:15px;line-height:1.7;color:var(--soft);max-width:30ch;margin:14px auto 0}
+.closing .sig{font-size:42px;line-height:1.1;color:var(--bur);margin-top:22px}
+.closing .mono{font-size:30px;color:var(--gold);margin:8px 0 0;line-height:1;opacity:.8}
 
 /* music */
 #music{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;width:46px;height:46px;border-radius:50%;border:1px solid rgba(228,201,140,.55);background:radial-gradient(circle at 35% 30%,#7a1a2c,#430913);color:#f3dca8;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 18px rgba(58,8,18,.4);opacity:0;transform:scale(.6);transition:.5s;pointer-events:none}
@@ -253,7 +256,7 @@ textarea{min-height:80px;resize:vertical}
     <svg class="fl tl" viewBox="0 0 200 260" data-fl aria-hidden="true"></svg>
     <svg class="fl br" viewBox="0 0 200 260" data-fl aria-hidden="true"></svg>
     <div class="hb"><svg viewBox="0 0 24 22" style="color:#fff"><use href="#hrt"/></svg></div>
-    <h1 class="cn1 disp">Abanop<i>&amp;</i>Lydia</h1>
+    <h1 class="cn1 disp">Abanob<i>&amp;</i>Lydia</h1>
     <div class="div"><svg viewBox="0 0 24 22"><use href="#hrt"/></svg></div>
     <p class="cd">January 28, 2027</p>
     <p class="ci">Cordially Invites You</p>
@@ -268,12 +271,12 @@ textarea{min-height:80px;resize:vertical}
     <div class="ew">
       <div class="flap"></div>
       <div class="lining"></div>
-      <div class="photo"><img src="img/kids.jpg" alt="Abanop and Lydia as children"></div>
+      <div class="photo"><img src="img/kids.jpg" alt="Abanob and Lydia as children"></div>
       <div class="pocket"></div>
       <svg class="bouquet" viewBox="0 0 200 260" data-fl aria-hidden="true"></svg>
       <div class="seal"><svg width="100%" height="100%"><use href="#heartseal"/></svg></div>
     </div>
-    <h2 class="names disp" aria-label="Abanop and Lydia"><em class="amp scr" aria-hidden="true">&amp;</em><span class="b">Abanop</span><span class="a">Lydia</span></h2>
+    <h2 class="names disp" aria-label="Abanob and Lydia"><em class="amp scr" aria-hidden="true">&amp;</em><span class="b">Abanob</span><span class="a">Lydia</span></h2>
     <p class="hd">THURSDAY · 28 JANUARY 2027</p>
   </section>
 
@@ -288,7 +291,7 @@ textarea{min-height:80px;resize:vertical}
     </svg>
     <p class="vtext">“What therefore God hath joined together, let not man put asunder.”</p>
     <span class="vref">MATTHEW 19:6</span>
-    <p class="cnm disp">Abanop<span class="scr">&amp;</span>Lydia</p>
+    <p class="cnm disp">Abanob<span class="scr">&amp;</span>Lydia</p>
   </section>
 
   <section class="plain rv">
@@ -348,7 +351,9 @@ textarea{min-height:80px;resize:vertical}
   </section>
 
   <section class="closing rv">
-    <p>Are joyfully joined in holy matrimony.</p>
+    <p class="cl1">Our joy will only be complete with you beside us.</p>
+    <p class="cl2">We are counting the days until we celebrate together — please join us as we begin our forever, on the 28th of January.</p>
+    <p class="sig scr">With love, Abanob &amp; Lydia</p>
     <p class="mono scr">A &amp; L</p>
   </section>
 </main>
@@ -481,7 +486,7 @@ addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==
 {const y=WEDDING.getFullYear(),mo=WEDDING.getMonth(),day=28,first=(new Date(y,mo,1).getDay()+6)%7,n=new Date(y,mo+1,0).getDate();
  let g=['Mo','Tu','We','Th','Fr','Sa','Su'].map(d=>`<span class="dh">${d}</span>`).join('')+'<span></span>'.repeat(first);
  for(let i=1;i<=n;i++)g+=`<span${i===day?' class="hit"':''}>${i}</span>`;$('#grid').innerHTML=g}
-$('#calBtn').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Wedding of Abanop & Lydia')+'&dates=20270128T160000Z/20270128T220000Z&location='+encodeURIComponent('St. Mary Church, El Nozha, Cairo')+'&details='+encodeURIComponent("Holy matrimony at 6:00 PM, St. Mary Church, El Nozha.\nReception follows at L'Opulence Hall, Rocket Garden, Sheraton.");
+$('#calBtn').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Wedding of Abanob & Lydia')+'&dates=20270128T160000Z/20270128T220000Z&location='+encodeURIComponent('St. Mary Church, El Nozha, Cairo')+'&details='+encodeURIComponent("Holy matrimony at 6:00 PM, St. Mary Church, El Nozha.\nReception follows at L'Opulence Hall, Rocket Garden, Sheraton.");
 
 /* ---------- countdown ---------- */
 const cards={};document.querySelectorAll('.fc').forEach(c=>{cards[c.dataset.u]=c;c.v=''});
