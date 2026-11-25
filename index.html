@@ -184,6 +184,7 @@ main{position:relative;z-index:1;max-width:500px;margin:0 auto;padding:0 20px 30
 .venue{margin:58px 0;text-align:center}
 .venue .h{color:var(--bur);margin-bottom:4px}
 .venue .sub{margin-bottom:6px}
+.venue .addr{margin:0 0 6px;font-size:14px;color:var(--soft);opacity:.85}
 .venue .tm2{font-size:14px;letter-spacing:.16em;color:var(--gold);margin:0 0 16px}
 .map{position:relative;height:240px;border-radius:12px;overflow:hidden;background:#e7ddcd;box-shadow:0 16px 30px -18px rgba(58,8,18,.6),0 0 0 1px rgba(184,143,69,.35)}
 .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -267,8 +268,8 @@ textarea{min-height:80px;resize:vertical}
     <div class="hb"><svg viewBox="0 0 24 22" style="color:#fff"><use href="#hrt"/></svg></div>
     <h1 class="cn1 disp">Abanob<i>&amp;</i>Lydia</h1>
     <div class="div"><svg viewBox="0 0 24 22"><use href="#hrt"/></svg></div>
-    <p class="cd">January 28, 2027</p>
-    <p class="ci">Cordially Invites You</p>
+    <p class="cd">Thursday, 28 January 2027</p>
+    <p class="ci">Cordially invite you</p>
     <button class="open" id="openBtn" type="button">Open</button>
   </div>
 </div>
@@ -312,7 +313,7 @@ textarea{min-height:80px;resize:vertical}
   <section class="card info rv">
     <svg class="fl l" viewBox="0 0 200 260" data-fl aria-hidden="true"></svg>
     <h2 class="h">Wedding Info</h2>
-    <p class="cap">The holy matrimony will take place at:</p>
+    <p class="cap">The Holy Matrimony will take place on</p>
     <div class="tm"><span>6:00 PM</span><span>THURSDAY</span></div>
     <div class="bigd"><b>28</b><span>JANUARY<em>2027</em></span></div>
     <div class="cal"><h4 class="scr">January 2027</h4><div class="grid" id="grid"></div></div>
@@ -321,7 +322,7 @@ textarea{min-height:80px;resize:vertical}
 
   <section class="plain rv">
     <h2 class="h">Counting Down</h2>
-    <p class="sub">until we say “I do”</p>
+    <p class="sub" id="cdsub">until our wedding day</p>
     <div class="clock">
       <div class="unit"><div class="fc w3" data-u="d"><span class="t"></span><span class="b"></span><span class="ft"></span><span class="fb"></span></div><small>DAYS</small></div>
       <div class="unit"><div class="fc" data-u="h"><span class="t"></span><span class="b"></span><span class="ft"></span><span class="fb"></span></div><small>HOURS</small></div>
@@ -332,17 +333,19 @@ textarea{min-height:80px;resize:vertical}
 
   <section class="venue rv">
     <h2 class="h">Wedding Ceremony Venue</h2>
-    <p class="sub">St. Mary Church, El Nozha</p>
+    <p class="sub">St. Mary Church, El Nozha El Gedida</p>
+    <p class="addr">6 Ahmed Abd El-Nabi St., El Nozha, Cairo</p>
     <p class="tm2">6:00 PM</p>
-    <div class="map" data-q="St. Mary Church El Nozha Cairo"><a class="om" href="https://maps.app.goo.gl/zz9EUDojHaGNMgsq6" target="_blank" rel="noopener">Open in Maps ↗</a></div>
+    <div class="map" data-q="كنيسة السيدة العذراء بالنزهة الجديدة، 6 Ahmed Abd El-Nabi, El Nozha, Cairo"><a class="om" href="https://maps.app.goo.gl/zz9EUDojHaGNMgsq6" target="_blank" rel="noopener">Open in Maps ↗</a></div>
     <a class="dir" href="https://maps.app.goo.gl/zz9EUDojHaGNMgsq6" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Get directions</a>
   </section>
 
   <section class="venue rv">
     <h2 class="h">Wedding Reception Venue</h2>
-    <p class="sub">L'Opulence Hall, Rocket Garden, Sheraton</p>
+    <p class="sub">L'Opulence Hall, Rocket Garden</p>
+    <p class="addr">Sheraton Al Matar, El Nozha, Cairo</p>
     <p class="tm2">FOLLOWING THE CEREMONY</p>
-    <div class="map" data-q="L'Opulence Hall Rocket Garden Sheraton Heliopolis Cairo"><a class="om" href="https://maps.app.goo.gl/QF3UVmJGjoC9kZSe9" target="_blank" rel="noopener">Open in Maps ↗</a></div>
+    <div class="map" data-q="39JJ+9WR Sheraton Al Matar, El Nozha, Cairo"><a class="om" href="https://maps.app.goo.gl/QF3UVmJGjoC9kZSe9" target="_blank" rel="noopener">Open in Maps ↗</a></div>
     <a class="dir" href="https://maps.app.goo.gl/QF3UVmJGjoC9kZSe9" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Get directions</a>
   </section>
 
@@ -463,7 +466,7 @@ function autoStep(t){const dt=Math.min(64,t-(lastA||t));lastA=t;
   if(auto&&!$('#lb').classList.contains('on')){acc+=AUTOSCROLL_PX_PER_SEC*dt/1000;const n=Math.floor(acc);if(n>=1){acc-=n;scrollBy(0,n)}
     if(innerHeight+scrollY>=document.documentElement.scrollHeight-2)auto=false}
   requestAnimationFrame(autoStep)}
-const hold=()=>{auto=false;clearTimeout(idleT);idleT=setTimeout(()=>{if(innerHeight+scrollY<document.documentElement.scrollHeight-2)auto=true},9000)};
+const hold=()=>{auto=false;clearTimeout(idleT);idleT=setTimeout(()=>{const f=document.activeElement;if(f&&/INPUT|TEXTAREA/.test(f.tagName)){hold();return}if(innerHeight+scrollY<document.documentElement.scrollHeight-2)auto=true},9000)};
 ['touchstart','wheel','mousedown','keydown'].forEach(e=>addEventListener(e,()=>{if(started)hold()},{passive:true}));
 let started=false;
 
@@ -479,10 +482,10 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
 /* ---------- gallery + lightbox ---------- */
-const tile=(i,c)=>`<button type="button" class="${c}" data-i="${i}" aria-label="Open photo ${i+1}"><img src="${esc(PHOTOS[i])}" alt="" loading="lazy"></button>`;
+const tile=(i,c)=>`<button type="button" class="${c}" data-i="${i}" aria-label="Open photo ${i+1}"><img src="${esc(PHOTOS[i])}" alt="Abanob and Lydia, photo ${i+1}" loading="lazy"></button>`;
 $('#g1').innerHTML=tile(0,'big')+`<div class="col">${tile(1,'sm')}${tile(2,'sm')}</div>`;
 $('#g2').innerHTML=tile(3,'big')+`<div class="col">${tile(4,'sm')}${tile(5,'sm')}</div>`;
-$('#lbs').innerHTML=PHOTOS.map(src=>`<figure><img src="${esc(src)}" alt="" loading="lazy"></figure>`).join('');
+$('#lbs').innerHTML=PHOTOS.map(src=>`<figure><img src="${esc(src)}" alt="Abanob and Lydia" loading="lazy"></figure>`).join('');
 const lb=$('#lb'),lbs=$('#lbs');let li=0;
 const setN=()=>$('#lbn').textContent=`${li+1} / ${PHOTOS.length}`;
 const show=i=>{li=(i+PHOTOS.length)%PHOTOS.length;lbs.scrollTo({left:li*lbs.clientWidth,behavior:'smooth'});setN()};
@@ -495,14 +498,14 @@ addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==
 {const y=WEDDING.getFullYear(),mo=WEDDING.getMonth(),day=28,first=(new Date(y,mo,1).getDay()+6)%7,n=new Date(y,mo+1,0).getDate();
  let g=['Mo','Tu','We','Th','Fr','Sa','Su'].map(d=>`<span class="dh">${d}</span>`).join('')+'<span></span>'.repeat(first);
  for(let i=1;i<=n;i++)g+=`<span${i===day?' class="hit"':''}>${i}</span>`;$('#grid').innerHTML=g}
-$('#calBtn').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Wedding of Abanob & Lydia')+'&dates=20270128T160000Z/20270128T220000Z&location='+encodeURIComponent('St. Mary Church, El Nozha, Cairo')+'&details='+encodeURIComponent("Holy matrimony at 6:00 PM, St. Mary Church, El Nozha.\nReception follows at L'Opulence Hall, Rocket Garden, Sheraton.");
+$('#calBtn').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Wedding of Abanob & Lydia')+'&dates=20270128T160000Z/20270128T220000Z&location='+encodeURIComponent('St. Mary Church, 6 Ahmed Abd El-Nabi St., El Nozha El Gedida, Cairo')+'&details='+encodeURIComponent("Holy matrimony at 6:00 PM, St. Mary Church, El Nozha.\nReception follows at L'Opulence Hall, Rocket Garden, Sheraton.");
 
 /* ---------- countdown ---------- */
 const cards={};document.querySelectorAll('.fc').forEach(c=>{cards[c.dataset.u]=c;c.v=''});
 function setCard(c,val){if(c.v===val)return;const [t,b,ft,fb]=c.children,old=c.v||val;c.v=val;t.textContent=val;fb.textContent=val;ft.textContent=old;b.textContent=old;
   if(RM||old===val){b.textContent=val;ft.textContent=val;return}c.classList.remove('go');void c.offsetWidth;c.classList.add('go');clearTimeout(c.tm);c.tm=setTimeout(()=>{b.textContent=val;ft.textContent=val;c.classList.remove('go')},600)}
 const pad=n=>String(n).padStart(2,'0');
-function tick(){let ms=Math.max(0,WEDDING-Date.now());const d=Math.floor(ms/864e5);ms-=d*864e5;const h=Math.floor(ms/36e5);ms-=h*36e5;const m=Math.floor(ms/6e4),s=Math.floor((ms-m*6e4)/1e3);
+function tick(){let ms=Math.max(0,WEDDING-Date.now());if(ms===0){$('#cdsub').textContent='Today we celebrate ♥'}const d=Math.floor(ms/864e5);ms-=d*864e5;const h=Math.floor(ms/36e5);ms-=h*36e5;const m=Math.floor(ms/6e4),s=Math.floor((ms-m*6e4)/1e3);
   setCard(cards.d,String(d).padStart(d>99?3:2,'0'));setCard(cards.h,pad(h));setCard(cards.m,pad(m));setCard(cards.s,pad(s))}
 tick();setInterval(tick,1000);
 
@@ -522,7 +525,7 @@ $('#gform').addEventListener('submit',e=>{e.preventDefault();const name=$('#gn')
   if(!name||!message){er.textContent='Please write your name and your wishes';return}
   if(!GUESTBOOK){er.textContent='The guestbook opens once the invitation is live.';return}
   er.textContent='';const b=$('#gsend');b.disabled=true;b.textContent='SENDING…';
-  fetch(GUESTBOOK,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({name,message})})
+  fetch(GUESTBOOK,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({name,message})})
     .then(()=>{$('#gm').value='';b.textContent='THANK YOU ♥';setTimeout(()=>{b.textContent='SEND WISHES';b.disabled=false},2500);setTimeout(load,800)})
     .catch(()=>{er.textContent='Could not send — please try again.';b.textContent='SEND WISHES';b.disabled=false})});
 }
