@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
 <title>Abanob & Lydia · 28 January 2027</title>
 <meta name="description" content="Abanob & Lydia cordially invite you to their wedding — Thursday, 28 January 2027, St. Mary Church, El Nozha.">
 <meta property="og:type" content="website">
@@ -34,7 +34,9 @@
 --linen:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px);
 --damask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='56' viewBox='0 0 44 56'%3E%3Cg fill='none' stroke='%23d9b56a' stroke-opacity='.32' stroke-width='.8'%3E%3Cpath d='M22 4c6 8 10 12 10 20s-6 12-10 18c-4-6-10-10-10-18S16 12 22 4z'/%3E%3Cpath d='M22 14c3 4 5 7 5 11s-3 6-5 9c-2-3-5-5-5-9s2-7 5-11zM0 0c6 8 10 12 10 20M44 0c-6 8-10 12-10 20M0 56c6-8 10-12 10-20M44 56c-6-8-10-12-10-20'/%3E%3Ccircle cx='22' cy='49' r='1.6'/%3E%3C/g%3E%3C/svg%3E")}
 *{box-sizing:border-box;min-width:0}
-html{-webkit-tap-highlight-color:transparent}
+html{-webkit-tap-highlight-color:transparent;overflow-x:clip;-webkit-text-size-adjust:100%;text-size-adjust:100%;touch-action:pan-y}
+body,main{max-width:100vw}
+.lbs{touch-action:pan-x}
 html.locked,html.locked body{overflow:hidden}
 body{margin:0;color:var(--ink);font:17px/1.6 "Wed Serif",Georgia,serif;background:#efe6d8 url(img/paper.jpg);overflow-x:clip}
 img{display:block;max-width:100%}
@@ -46,7 +48,8 @@ button,a,input,textarea{font:inherit}
 .sc{font-family:"SC",serif;font-weight:600;letter-spacing:.28em}
 
 /* ---------- vintage background (pre-rendered, composited) ---------- */
-.bgsketch{position:fixed;left:50%;bottom:0;width:max(130vw,780px);max-width:1100px;transform:translateX(-50%);opacity:.15;pointer-events:none;z-index:0;will-change:transform}
+.bgwrap{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bgsketch{position:absolute;left:50%;bottom:0;width:max(130vw,780px);max-width:1100px;transform:translateX(-50%);opacity:.15;pointer-events:none;z-index:0;will-change:transform}
 .vign{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(140% 90% at 50% 45%,transparent 55%,rgba(120,80,50,.16) 100%);will-change:transform}
 #fx{position:fixed;inset:0;width:100%;height:100%;z-index:90;pointer-events:none}
 
@@ -263,7 +266,10 @@ input:focus,textarea:focus{outline:none;border-color:var(--bur)}
 .wish time{font-size:12px;color:var(--soft);white-space:nowrap}
 .wish p{margin:6px 0 0;font-size:15px;line-height:1.55;color:#4b2a2a;overflow-wrap:anywhere}
 .empty{font-style:italic;color:var(--soft);text-align:center;font-size:15px}
-.closing{text-align:center;padding:50px 0 110px}
+.closing{text-align:center;padding:50px 0 34px}
+.credit{display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px 0 calc(96px + env(safe-area-inset-bottom));border-top:1px solid rgba(168,130,61,.35);margin:0 30px;text-decoration:none}
+.credit small{font:600 10px/1 "SC",serif;letter-spacing:.26em;color:var(--soft);opacity:.85}
+.credit img{width:96px;height:auto;opacity:.9}
 .closing p{margin:0}
 .closing .cl1{font:italic 400 clamp(20px,5.6vw,23px)/1.4 "Wed Serif",serif;color:var(--bur);max-width:20ch;margin:0 auto;text-wrap:balance}
 .closing .cl2{font-size:15px;line-height:1.7;color:var(--soft);max-width:30ch;margin:14px auto 0;text-wrap:balance}
@@ -313,7 +319,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--bur)}
 <symbol id="hrt" viewBox="0 0 24 22"><path fill="currentColor" d="M12 21.5C5 15.8 0 11.6 0 6.6 0 3 2.8 0 6.3 0 8.6 0 10.8 1.2 12 3.2 13.2 1.2 15.4 0 17.7 0 21.2 0 24 3 24 6.6c0 5-5 9.2-12 14.9z"/></symbol>
 </svg>
 
-<img class="bgsketch" src="img/sketch.webp" alt="" aria-hidden="true">
+<div class="bgwrap" aria-hidden="true"><img class="bgsketch" src="img/sketch.webp" alt=""></div>
 <div class="vign"></div>
 <canvas id="fx" aria-hidden="true"></canvas>
 
@@ -443,6 +449,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--bur)}
     <p class="sig"><small>With love,</small>Abanob &amp; Lydia</p>
     <svg class="cseal" viewBox="0 0 100 100" aria-hidden="true"><use href="#waxseal"/></svg>
   </section>
+  <a class="credit" href="https://minova-digital.github.io" target="_blank" rel="noopener"><small>DESIGNED &amp; DEVELOPED BY</small><img src="img/minova.webp" alt="MINOVA Digital Technologies" width="96" height="47" loading="lazy"></a>
 </main>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
@@ -467,6 +474,12 @@ const SCROLL_SPEED = 36; // px per second
 const $=s=>document.querySelector(s),RM=matchMedia('(prefers-reduced-motion: reduce)').matches,root=document.documentElement;
 root.classList.add('locked');if('scrollRestoration'in history)history.scrollRestoration='manual';scrollTo(0,0);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ---------- keep the page at 100% (no pinch / double-tap / ctrl zoom) ---------- */
+['gesturestart','gesturechange','gestureend'].forEach(e=>document.addEventListener(e,ev=>ev.preventDefault(),{passive:false}));
+document.addEventListener('touchmove',e=>{if(e.touches.length>1)e.preventDefault()},{passive:false});
+addEventListener('wheel',e=>{if(e.ctrlKey)e.preventDefault()},{passive:false});
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&['+','-','=','0'].includes(e.key))e.preventDefault()});
 
 /* ---------- personal greeting ---------- */
 {const to=new URLSearchParams(location.search).get('to');if(to&&to.trim())$('#dear').textContent='Dear '+to.trim().slice(0,40)+',' }
